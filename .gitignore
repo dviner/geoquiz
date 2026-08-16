@@ -32,6 +32,14 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# sqlite runtime database (data/questions.json IS committed, the db file is not)
+/data/*.db
+/data/*.db-*
+
+# generated map data (recreated by postinstall from world-atlas)
+/public/countries-50m.json
 
 # vercel
 .vercel

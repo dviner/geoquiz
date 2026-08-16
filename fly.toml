@@ -1,0 +1,23 @@
+# fly.toml — adjust `app` and `primary_region` to your own values.
+# See README.md for the full Fly.io deploy walkthrough.
+
+app = "geoquiz-family"
+primary_region = "sea"
+
+[env]
+  DATABASE_PATH = "/data/geoquiz.db"
+
+[[mounts]]
+  source = "geoquiz_data"
+  destination = "/data"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+
+[[vm]]
+  memory = "256mb"
+  cpus = 1
